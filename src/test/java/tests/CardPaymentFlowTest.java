@@ -29,7 +29,8 @@ public class CardPaymentFlowTest extends BaseTest {
         // Step 1: Navigate to JusPay sandbox payment page
         System.out.println("Step 1: Navigating to JusPay sandbox payment page");
         driver.get("https://sandbox.assets.juspay.in/payment-page/signature/picasso-019a7c749cee00000000000076020d0b");
-        Thread.sleep(3000); // Wait for page to load
+        System.out.println("Waiting 3 minutes for page to fully load...");
+        Thread.sleep(180000); // 3 minutes wait
         
         // Step 2: Click on card number field
         System.out.println("Step 2: Clicking on card number field");

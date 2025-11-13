@@ -29,7 +29,8 @@ public class NetBankingPaymentFlowTest extends BaseTest {
         // Step 1: Navigate to payment page
         System.out.println("Step 1: Navigating to payment page");
         homePage.navigateToPayment();
-        Thread.sleep(3000);
+        System.out.println("Waiting 3 minutes for page to fully load...");
+        Thread.sleep(180000); // 3 minutes wait
 
         // Step 2: Verify payment methods are displayed
         System.out.println("Step 2: Verifying payment methods are displayed");
@@ -82,7 +83,8 @@ public class NetBankingPaymentFlowTest extends BaseTest {
             System.out.println("Testing Net Banking with: " + bank);
 
             homePage.navigateToPayment();
-            Thread.sleep(2000);
+            System.out.println("Waiting 3 minutes for page to fully load...");
+            Thread.sleep(180000); // 3 minutes wait
 
             paymentPage.selectNetBanking();
 
@@ -121,7 +123,8 @@ public class NetBankingPaymentFlowTest extends BaseTest {
             System.out.println("Attempt " + attempt + " of 3");
 
             homePage.navigateToPayment();
-            Thread.sleep(2000);
+            System.out.println("Waiting 3 minutes for page to fully load...");
+            Thread.sleep(180000); // 3 minutes wait
 
             paymentPage.selectNetBanking();
 
@@ -158,7 +161,8 @@ public class NetBankingPaymentFlowTest extends BaseTest {
         System.out.println("=== Starting Net Banking Timeout Test ===");
 
         homePage.navigateToPayment();
-        Thread.sleep(3000);
+        System.out.println("Waiting 3 minutes for page to fully load...");
+        Thread.sleep(180000); // 3 minutes wait
 
         paymentPage.selectNetBanking();
 

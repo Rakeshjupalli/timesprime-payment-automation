@@ -32,7 +32,8 @@ public class UPIPaymentFlowTest extends BaseTest {
         // Step 1: Navigate to payment page
         System.out.println("Step 1: Navigating to payment page");
         homePage.navigateToPayment();
-        Thread.sleep(3000);
+        System.out.println("Waiting 3 minutes for page to fully load...");
+        Thread.sleep(180000); // 3 minutes wait
 
         // Step 2: Verify payment methods are displayed
         System.out.println("Step 2: Verifying payment methods are displayed");
@@ -74,7 +75,8 @@ public class UPIPaymentFlowTest extends BaseTest {
 
         // Navigate to payment
         homePage.navigateToPayment();
-        Thread.sleep(3000);
+        System.out.println("Waiting 3 minutes for page to fully load...");
+        Thread.sleep(180000); // 3 minutes wait
 
         // Select UPI
         paymentPage.selectUPI();
@@ -107,7 +109,8 @@ public class UPIPaymentFlowTest extends BaseTest {
         System.out.println("=== Starting UPI Payment Flow with Invalid UPI Test ===");
 
         homePage.navigateToPayment();
-        Thread.sleep(3000);
+        System.out.println("Waiting 3 minutes for page to fully load...");
+        Thread.sleep(180000); // 3 minutes wait
 
         paymentPage.selectUPI();
         paymentPage.enterUPIId("invalid@upi");
@@ -142,7 +145,8 @@ public class UPIPaymentFlowTest extends BaseTest {
             System.out.println("Testing UPI: " + upiId);
 
             homePage.navigateToPayment();
-            Thread.sleep(2000);
+            System.out.println("Waiting 3 minutes for page to fully load...");
+            Thread.sleep(180000); // 3 minutes wait
 
             paymentPage.selectUPI();
             paymentPage.enterUPIId(upiId);
