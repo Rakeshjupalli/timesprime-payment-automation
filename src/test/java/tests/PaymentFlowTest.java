@@ -26,12 +26,13 @@ public class PaymentFlowTest extends BaseTest {
         login.enterMobile("9999999999");   // Use a valid test number if required
         login.clickContinue();
 
-        // Wait for navigation to payment (simple static waits here; replace with explicit waits if desired)
-        Thread.sleep(3000);
+    // Wait for navigation to payment (simple static waits here; replace with explicit waits if desired)
+    // Increased sleep to ensure payment/login flow finishes loading
+    Thread.sleep(5000);
 
         PaymentPage payment = new PaymentPage(driver);
         try {
-            payment.chooseUPI();
+            payment.selectUPI();
         } catch (Exception e) {
             // if UPI option not visible, attempt to click pay directly
         }

@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="TimesPrimeSuite">
+<suite name="TimesPrimeSuite" parallel="false" thread-count="1">
+    
+    <!-- UPI Payment Flow Tests -->
+    <test name="UPIPaymentFlowTests">
+        <classes>
+            <class name="tests.UPIPaymentFlowTest"/>
+        </classes>
+    </test>
+
+    <!-- Credit/Debit Card Payment Flow Tests -->
+    <test name="CardPaymentFlowTests">
+        <classes>
+            <class name="tests.CardPaymentFlowTest"/>
+        </classes>
+    </test>
+
+    <!-- Net Banking Payment Flow Tests -->
+    <test name="NetBankingPaymentFlowTests">
+        <classes>
+            <class name="tests.NetBankingPaymentFlowTest"/>
+        </classes>
+    </test>
+
+    <!-- Wallet and EMI Payment Flow Tests -->
+    <test name="WalletAndEMIPaymentFlowTests">
+        <classes>
+            <class name="tests.WalletAndEMIPaymentFlowTest"/>
+        </classes>
+    </test>
+
+    <!-- End-to-End Payment Flow Tests -->
+    <test name="EndToEndPaymentFlowTests">
+        <classes>
+            <class name="tests.EndToEndPaymentFlowTest"/>
+        </classes>
+    </test>
+
+    <!-- Original Payment Flow Test -->
     <test name="PaymentFlowTest">
         <classes>
             <class name="tests.PaymentFlowTest"/>
         </classes>
     </test>
+
 </suite>
