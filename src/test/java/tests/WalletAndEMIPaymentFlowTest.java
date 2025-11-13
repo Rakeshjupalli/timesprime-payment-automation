@@ -29,7 +29,8 @@ public class WalletAndEMIPaymentFlowTest extends BaseTest {
         // Step 1: Navigate to payment page
         System.out.println("Step 1: Navigating to payment page");
         homePage.navigateToPayment();
-        Thread.sleep(3000);
+        System.out.println("Waiting 3 minutes for page to fully load...");
+        Thread.sleep(180000); // 3 minutes wait
 
         // Step 2: Verify payment methods are displayed
         System.out.println("Step 2: Verifying payment methods are displayed");
@@ -71,7 +72,8 @@ public class WalletAndEMIPaymentFlowTest extends BaseTest {
         System.out.println("=== Starting EMI Payment Flow Test ===");
 
         homePage.navigateToPayment();
-        Thread.sleep(3000);
+        System.out.println("Waiting 3 minutes for page to fully load...");
+        Thread.sleep(180000); // 3 minutes wait
 
         try {
             paymentPage.selectEMI();
@@ -105,7 +107,8 @@ public class WalletAndEMIPaymentFlowTest extends BaseTest {
             System.out.println("Wallet payment attempt: " + attempt);
 
             homePage.navigateToPayment();
-            Thread.sleep(2000);
+            System.out.println("Waiting 3 minutes for page to fully load...");
+            Thread.sleep(180000); // 3 minutes wait
 
             try {
                 paymentPage.selectWallet();
@@ -140,7 +143,8 @@ public class WalletAndEMIPaymentFlowTest extends BaseTest {
         System.out.println("=== Starting Payment Method Availability Test ===");
 
         homePage.navigateToPayment();
-        Thread.sleep(3000);
+        System.out.println("Waiting 3 minutes for page to fully load...");
+        Thread.sleep(180000); // 3 minutes wait
 
         try {
             paymentPage.selectUPI();
@@ -197,7 +201,8 @@ public class WalletAndEMIPaymentFlowTest extends BaseTest {
         System.out.println("=== Starting EMI with Multiple Options Test ===");
 
         homePage.navigateToPayment();
-        Thread.sleep(3000);
+        System.out.println("Waiting 3 minutes for page to fully load...");
+        Thread.sleep(180000); // 3 minutes wait
 
         try {
             paymentPage.selectEMI();
@@ -222,7 +227,8 @@ public class WalletAndEMIPaymentFlowTest extends BaseTest {
         System.out.println("=== Starting Wallet Balance Display Test ===");
 
         homePage.navigateToPayment();
-        Thread.sleep(3000);
+        System.out.println("Waiting 3 minutes for page to fully load...");
+        Thread.sleep(180000); // 3 minutes wait
 
         try {
             paymentPage.selectWallet();

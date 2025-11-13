@@ -13,6 +13,8 @@ public class PaymentFlowTest extends BaseTest {
     public void testTimesPrimePaymentFlow() throws InterruptedException {
 
         driver.get("https://www.timesprime.com");
+        System.out.println("Waiting 3 minutes for page to fully load...");
+        Thread.sleep(180000); // 3 minutes wait
 
         HomePage home = new HomePage(driver);
         // attempt to click join/subscribe; it's okay if locator needs tuning for the live page
