@@ -17,7 +17,7 @@ public class PaymentPage {
     private By upiOption = By.xpath("//div[contains(text(),'UPI')] | //label[contains(text(),'UPI')] | //button[contains(text(),'UPI')]");
     private By creditCardOption = By.xpath("//div[contains(text(),'Credit Card')] | //label[contains(text(),'Credit Card')] | //button[contains(text(),'Credit Card')]");
     private By debitCardOption = By.xpath("//div[contains(text(),'Debit Card')] | //label[contains(text(),'Debit Card')] | //button[contains(text(),'Debit Card')]");
-    private By netBankingOption = By.xpath("//div[contains(text(),'Net Banking')] | //label[contains(text(),'Net Banking')] | //button[contains(text(),'Net Banking')]");
+    private By netBankingOption = By.xpath("//article[normalize-space()='Netbanking']");
     private By walletOption = By.xpath("//div[contains(text(),'Wallet')] | //label[contains(text(),'Wallet')] | //button[contains(text(),'Wallet')]");
     private By emiOption = By.xpath("//div[contains(text(),'EMI')] | //label[contains(text(),'EMI')] | //button[contains(text(),'EMI')]");
 
@@ -136,6 +136,27 @@ public class PaymentPage {
             cardInput.click();
             Thread.sleep(500);
         } catch (Exception e) {
+            // Fallback: some payment providers render inputs inside iframes (e.g. JusPay).
+            // Try switching into iframes and locate the element there.
+            try {
+                List<WebElement> iframes = driver.findElements(By.tagName("iframe"));
+                for (WebElement frame : iframes) {
+                    try {
+                        driver.switchTo().frame(frame);
+                        WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+                        WebElement inner = shortWait.until(ExpectedConditions.elementToBeClickable(cardNumberField));
+                        inner.click();
+                        Thread.sleep(500);
+                        driver.switchTo().defaultContent();
+                        return;
+                    } catch (Exception innerEx) {
+                        // ignore and try next iframe
+                        driver.switchTo().defaultContent();
+                    }
+                }
+            } catch (Exception frameEx) {
+                // ignore
+            }
             throw new Exception("Failed to click card number field: " + e.getMessage());
         }
     }
@@ -147,6 +168,25 @@ public class PaymentPage {
             cardInput.sendKeys(cardNumber);
             Thread.sleep(300);
         } catch (Exception e) {
+            // Try inside iframes as a fallback
+            try {
+                List<WebElement> iframes = driver.findElements(By.tagName("iframe"));
+                for (WebElement frame : iframes) {
+                    try {
+                        driver.switchTo().frame(frame);
+                        WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+                        WebElement inner = shortWait.until(ExpectedConditions.visibilityOfElementLocated(cardNumberField));
+                        inner.sendKeys(cardNumber);
+                        Thread.sleep(300);
+                        driver.switchTo().defaultContent();
+                        return;
+                    } catch (Exception innerEx) {
+                        driver.switchTo().defaultContent();
+                    }
+                }
+            } catch (Exception frameEx) {
+                // ignore
+            }
             throw new Exception("Failed to enter card number: " + e.getMessage());
         }
     }
