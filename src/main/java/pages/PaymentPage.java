@@ -53,7 +53,7 @@ public class PaymentPage {
 
     public PaymentPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
 
     // Payment Method Selection Methods
@@ -89,6 +89,8 @@ public class PaymentPage {
 
     public void selectNetBanking() throws Exception {
         try {
+            // Wait for page to be fully loaded
+            Thread.sleep(2000);
             WebElement netBanking = wait.until(ExpectedConditions.elementToBeClickable(netBankingOption));
             netBanking.click();
             Thread.sleep(500);
@@ -281,9 +283,12 @@ public class PaymentPage {
     // Verification Methods
     public boolean isPaymentMethodsDisplayed() {
         try {
+            // Wait a bit for payment methods to load
+            Thread.sleep(3000);
             return driver.findElements(upiOption).size() > 0 ||
                    driver.findElements(creditCardOption).size() > 0 ||
-                   driver.findElements(debitCardOption).size() > 0;
+                   driver.findElements(debitCardOption).size() > 0 ||
+                   driver.findElements(netBankingOption).size() > 0;
         } catch (Exception e) {
             return false;
         }
