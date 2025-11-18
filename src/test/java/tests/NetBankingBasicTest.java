@@ -23,7 +23,7 @@ public class NetBankingBasicTest extends BaseTest {
         // Step 1: Open the payment page URL
         driver.get("https://sandbox.assets.juspay.in/payment-page/signature/picasso-019a97d01dc3000000000000ecb1edf8");
 
-        // wait to load page fully (reduce to 5 sec)
+        // wait to load page fully
         Thread.sleep(20000);
 
         System.out.println("=== Clicking NetBanking Option ===");
@@ -46,15 +46,15 @@ public class NetBankingBasicTest extends BaseTest {
         // Wait for Proceed to Pay button to appear
         Thread.sleep(5000);
         
-        System.out.println("=== Looking for Proceed to Pay Button ===");
+        System.out.println("=== Clicking Proceed to Pay Button ===");
         
-        // Step 4: Try to click Proceed to Pay button with multiple selectors
+        // Step 4: Click Proceed to Pay button with multiple selectors
         boolean buttonClicked = false;
         String[] selectors = {
-            "//button[contains(., 'Proceed')]",
-            "//*[contains(., 'Proceed') and contains(., 'pay')]",
-            "//button[contains(@class, 'proceed')]",
-            "//*[@role='button' and contains(., 'Proceed')]"
+            "//*[@data-testid='btn_pay']",
+            "//*[@class='textView']//article[contains(text(),'Proceed to pay')]",
+            "//article[normalize-space()='Proceed to pay ₹10,000']",
+            "//*[contains(., 'Proceed') and contains(., 'pay')]"
         };
         
         for (String selector : selectors) {
@@ -65,11 +65,12 @@ public class NetBankingBasicTest extends BaseTest {
                 break;
             } catch (Exception e) {
                 // Try next selector
+                System.out.println("=== Selector failed: " + selector + " ===");
             }
         }
         
         if (!buttonClicked) {
-            System.out.println("=== Note: Proceed to Pay button not found. Test completed NetBanking and Canara Bank selection ===");
+            System.out.println("=== ERROR: Proceed to Pay button not found with any selector ===");
         }
         
         // Wait to observe the result
