@@ -29,8 +29,8 @@ public class NetBankingPaymentFlowTest extends BaseTest {
         // Step 1: Navigate to payment page
         System.out.println("Step 1: Navigating to JusPay sandbox payment page");
         driver.get("https://sandbox.assets.juspay.in/payment-page/signature/picasso-019a96b23890000000000000b6505733");
-        System.out.println("Waiting 3 minutes for page to fully load...");
-        Thread.sleep(180000); // 3 minutes wait
+        System.out.println("Waiting 30 seconds for page to fully load...");
+        Thread.sleep(30000); // 30 seconds wait
 
         // Step 2: Verify payment methods are displayed
         System.out.println("Step 2: Verifying payment methods are displayed");
@@ -83,8 +83,8 @@ public class NetBankingPaymentFlowTest extends BaseTest {
             System.out.println("Testing Net Banking with: " + bank);
 
             driver.get("https://sandbox.assets.juspay.in/payment-page/signature/picasso-019a96b23890000000000000b6505733");
-            System.out.println("Waiting 3 minutes for page to fully load...");
-            Thread.sleep(180000); // 3 minutes wait
+            System.out.println("Waiting 30 seconds for page to fully load...");
+            Thread.sleep(30000); // 30 seconds wait
 
             paymentPage.selectNetBanking();
 
@@ -123,8 +123,8 @@ public class NetBankingPaymentFlowTest extends BaseTest {
             System.out.println("Attempt " + attempt + " of 3");
 
             driver.get("https://sandbox.assets.juspay.in/payment-page/signature/picasso-019a96b23890000000000000b6505733");
-            System.out.println("Waiting 3 minutes for page to fully load...");
-            Thread.sleep(180000); // 3 minutes wait
+            System.out.println("Waiting 30 seconds for page to fully load...");
+            Thread.sleep(30000); // 30 seconds wait
 
             paymentPage.selectNetBanking();
 
@@ -161,8 +161,8 @@ public class NetBankingPaymentFlowTest extends BaseTest {
         System.out.println("=== Starting Net Banking Timeout Test ===");
 
         driver.get("https://sandbox.assets.juspay.in/payment-page/signature/picasso-019a96b23890000000000000b6505733");
-        System.out.println("Waiting 3 minutes for page to fully load...");
-        Thread.sleep(180000); // 3 minutes wait
+        System.out.println("Waiting 30 seconds for page to fully load...");
+        Thread.sleep(30000); // 30 seconds wait
 
         paymentPage.selectNetBanking();
 
