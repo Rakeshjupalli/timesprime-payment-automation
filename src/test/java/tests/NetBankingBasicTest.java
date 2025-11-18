@@ -24,13 +24,14 @@ public class NetBankingBasicTest extends BaseTest {
         driver.get("https://sandbox.assets.juspay.in/payment-page/signature/picasso-019a97d01dc3000000000000ecb1edf8");
 
         // wait to load page fully (reduce to 5 sec)
-        Thread.sleep(5000);
+        Thread.sleep(30000);
 
         System.out.println("=== Clicking NetBanking Option ===");
 
         // Step 2: Click NetBanking on left sidebar
         // Use this XPath → //*[@data-testid='netbanking']
-        driver.findElement(By.xpath("//*[@data-testid='netbanking']")).click();
+        driver.findElement(By.xpath("//article[normalize-space()='Netbanking']")).click();
+
 
         System.out.println("=== NetBanking Clicked Successfully ===");
     }
