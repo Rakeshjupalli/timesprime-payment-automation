@@ -22,7 +22,7 @@
 ---
 
 ## 🎯 What Was Built
-
+  
 ### Phase 1: Core Test Automation ✅
 1. ✅ PaymentPage.java (12.6 KB) - Enhanced with 30+ methods
 2. ✅ HomePage.java (1.6 KB) - Navigation support
@@ -31,7 +31,7 @@
 
 ### Phase 2: Test Suite Development ✅
 1. ✅ UPIPaymentFlowTest.java (5.3 KB) - 4 test cases
-2. ✅ CardPaymentFlowTest.java (8.0 KB) - 6 test cases
+2. ✅ CardPaymentFlowTest.java (8.0 KB) - 6 test cases. 
 3. ✅ NetBankingPaymentFlowTest.java (6.0 KB) - 4 test cases
 4. ✅ WalletAndEMIPaymentFlowTest.java (8.3 KB) - 6 test cases
 5. ✅ EndToEndPaymentFlowTest.java (11.4 KB) - 10 test cases

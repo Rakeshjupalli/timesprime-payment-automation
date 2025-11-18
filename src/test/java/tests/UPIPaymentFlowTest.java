@@ -30,8 +30,8 @@ public class UPIPaymentFlowTest extends BaseTest {
         System.out.println("=== Starting UPI Payment Flow Test ===");
 
         // Step 1: Navigate to payment page
-        System.out.println("Step 1: Navigating to payment page");
-        homePage.navigateToPayment();
+        System.out.println("Step 1: Navigating to JusPay sandbox payment page");
+        driver.get("https://sandbox.assets.juspay.in/payment-page/signature/picasso-019a96b23890000000000000b6505733");
         System.out.println("Waiting 3 minutes for page to fully load...");
         Thread.sleep(180000); // 3 minutes wait
 
@@ -74,7 +74,7 @@ public class UPIPaymentFlowTest extends BaseTest {
         System.out.println("=== Starting UPI Payment with OTP Verification Test ===");
 
         // Navigate to payment
-        homePage.navigateToPayment();
+        driver.get("https://sandbox.assets.juspay.in/payment-page/signature/picasso-019a96b23890000000000000b6505733");
         System.out.println("Waiting 3 minutes for page to fully load...");
         Thread.sleep(180000); // 3 minutes wait
 
@@ -108,7 +108,7 @@ public class UPIPaymentFlowTest extends BaseTest {
     public void testUPIPaymentFlowWithInvalidUPI() throws Exception {
         System.out.println("=== Starting UPI Payment Flow with Invalid UPI Test ===");
 
-        homePage.navigateToPayment();
+        driver.get("https://sandbox.assets.juspay.in/payment-page/signature/picasso-019a96b23890000000000000b6505733");
         System.out.println("Waiting 3 minutes for page to fully load...");
         Thread.sleep(180000); // 3 minutes wait
 
@@ -144,7 +144,7 @@ public class UPIPaymentFlowTest extends BaseTest {
         for (String upiId : upiIds) {
             System.out.println("Testing UPI: " + upiId);
 
-            homePage.navigateToPayment();
+            driver.get("https://sandbox.assets.juspay.in/payment-page/signature/picasso-019a96b23890000000000000b6505733");
             System.out.println("Waiting 3 minutes for page to fully load...");
             Thread.sleep(180000); // 3 minutes wait
 

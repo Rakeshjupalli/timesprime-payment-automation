@@ -27,8 +27,8 @@ public class NetBankingPaymentFlowTest extends BaseTest {
         System.out.println("=== Starting Net Banking Payment Flow Test ===");
 
         // Step 1: Navigate to payment page
-        System.out.println("Step 1: Navigating to payment page");
-        homePage.navigateToPayment();
+        System.out.println("Step 1: Navigating to JusPay sandbox payment page");
+        driver.get("https://sandbox.assets.juspay.in/payment-page/signature/picasso-019a96b23890000000000000b6505733");
         System.out.println("Waiting 3 minutes for page to fully load...");
         Thread.sleep(180000); // 3 minutes wait
 
@@ -82,7 +82,7 @@ public class NetBankingPaymentFlowTest extends BaseTest {
         for (String bank : banks) {
             System.out.println("Testing Net Banking with: " + bank);
 
-            homePage.navigateToPayment();
+            driver.get("https://sandbox.assets.juspay.in/payment-page/signature/picasso-019a96b23890000000000000b6505733");
             System.out.println("Waiting 3 minutes for page to fully load...");
             Thread.sleep(180000); // 3 minutes wait
 
@@ -122,7 +122,7 @@ public class NetBankingPaymentFlowTest extends BaseTest {
         for (int attempt = 1; attempt <= 3; attempt++) {
             System.out.println("Attempt " + attempt + " of 3");
 
-            homePage.navigateToPayment();
+            driver.get("https://sandbox.assets.juspay.in/payment-page/signature/picasso-019a96b23890000000000000b6505733");
             System.out.println("Waiting 3 minutes for page to fully load...");
             Thread.sleep(180000); // 3 minutes wait
 
@@ -160,7 +160,7 @@ public class NetBankingPaymentFlowTest extends BaseTest {
     public void testNetBankingTimeoutHandling() throws Exception {
         System.out.println("=== Starting Net Banking Timeout Test ===");
 
-        homePage.navigateToPayment();
+        driver.get("https://sandbox.assets.juspay.in/payment-page/signature/picasso-019a96b23890000000000000b6505733");
         System.out.println("Waiting 3 minutes for page to fully load...");
         Thread.sleep(180000); // 3 minutes wait
 
