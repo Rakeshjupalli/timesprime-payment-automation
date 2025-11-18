@@ -33,9 +33,19 @@ public class NetBankingBasicTest extends BaseTest {
 
         System.out.println("=== NetBanking Clicked Successfully ===");
         
-        // Wait for 20 seconds after clicking
+        // Wait for bank list to load
+        Thread.sleep(3000);
+        
+        System.out.println("=== Selecting Canara Bank ===");
+        
+        // Step 3: Select Canara Bank from the list
+        driver.findElement(By.xpath("//*[contains(text(),'Canara Bank')]")).click();
+        
+        System.out.println("=== Canara Bank Selected Successfully ===");
+        
+        // Wait for 20 seconds after selecting bank
         Thread.sleep(20000);
         
-        System.out.println("=== Waited 20 seconds after clicking NetBanking ===");
+        System.out.println("=== Waited 20 seconds after selecting Canara Bank ===");
     }
 }
