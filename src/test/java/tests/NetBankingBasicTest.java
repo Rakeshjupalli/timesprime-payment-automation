@@ -29,10 +29,13 @@ public class NetBankingBasicTest extends BaseTest {
         System.out.println("=== Clicking NetBanking Option ===");
 
         // Step 2: Click NetBanking on left sidebar
-        // Use this XPath → //*[@data-testid='netbanking']
         driver.findElement(By.xpath("//article[normalize-space()='Netbanking']")).click();
 
-
         System.out.println("=== NetBanking Clicked Successfully ===");
+        
+        // Wait for 20 seconds after clicking
+        Thread.sleep(20000);
+        
+        System.out.println("=== Waited 20 seconds after clicking NetBanking ===");
     }
 }
